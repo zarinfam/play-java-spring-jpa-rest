@@ -1,9 +1,9 @@
 package controllers;
 
+import daos.GeneralDao;
+import daos.GenericDao;
 import models.Task;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.*;
-import play.*;
 import play.libs.Json;
 import play.mvc.*;
 
@@ -18,6 +18,9 @@ public class Application extends Controller {
     @Autowired
     private TaskService taskService;
 
+    @Autowired
+    private GeneralDao generalDao;
+
     public Result index() {
         return ok(index.render("Your new application is ready."));
     }
@@ -27,7 +30,8 @@ public class Application extends Controller {
     }
 
     public Result getTask(Long taskId) {
-        return ok(Json.toJson(taskService.getTask(taskId)));
+//        return ok(Json.toJson(taskService.getTask(taskId)));
+        return ok(Json.toJson(generalDao.find(taskId, Task.class)));
     }
 
     @BodyParser.Of(BodyParser.Json.class)

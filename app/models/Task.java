@@ -19,6 +19,10 @@ public class Task implements Serializable{
     public Task() {
     }
 
+    public Task(String taskTitle) {
+        this.taskTitle = taskTitle;
+    }
+
     public Long getId() {
         return id;
     }

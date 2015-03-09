@@ -13,7 +13,7 @@ import play.libs.Json;
  */
 public class Global extends GlobalSettings {
 
-    private ApplicationContext applicationContext;
+    protected ApplicationContext applicationContext;
 
     @Override
     public void onStart(Application app) {
