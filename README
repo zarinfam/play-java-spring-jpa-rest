@@ -1,4 +1,6 @@
-This is your new Play application
+This is a template Play java project that offer rest API using following libraries:
 =================================
 
-This file will be packaged with your application, when using `activator dist`.
+- Play 2.3
+- Spring 4.0.4
+- JPA (Hibernate) 2.1
