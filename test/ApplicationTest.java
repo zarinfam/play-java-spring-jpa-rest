@@ -33,26 +33,24 @@ import static org.fest.assertions.Assertions.*;
 public class ApplicationTest {
 
     @Test
-    public void tasksRoute() {
+    public void tasksRoute() throws Exception {
 
+        //initial test environment
         GlobalTest globalSettings = new GlobalTest();
         start(fakeApplication(inMemoryDatabase(), globalSettings));
 
         globalSettings.applicationContext.getBean(TaskService.class).addTask(new Task("task1"));
 
+        //do test
         Result result = route(fakeRequest(GET, "/tasks"));
 
+        //assertions
         assertThat(status(result)).isEqualTo(OK);
 
-        try {
-            List<Task> tasks = new ObjectMapper().readValue(contentAsString(result),
-                    TypeFactory.defaultInstance().constructCollectionType(List.class, Task.class));
+        List<Task> tasks = new ObjectMapper().readValue(contentAsString(result),
+                TypeFactory.defaultInstance().constructCollectionType(List.class, Task.class));
 
-            assertThat(tasks.size()).isEqualTo(1);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
+        assertThat(tasks.size()).isEqualTo(1);
     }
 
 }
