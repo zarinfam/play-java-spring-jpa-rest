@@ -13,3 +13,5 @@ libraryDependencies ++= Seq(
   "org.hibernate" % "hibernate-entitymanager" % "4.3.8.Final", // replace by your jpa implementation
   "org.springframework" % "spring-test" % "4.0.4.RELEASE" % "test"
 )
+
+fork in Test := false
