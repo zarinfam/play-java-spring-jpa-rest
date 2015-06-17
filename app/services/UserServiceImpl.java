@@ -8,16 +8,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by mohsen on 4/5/15.
  */
-@Service
+@Named
 @Transactional
 public class UserServiceImpl implements UserService {
-    @Autowired
+    @Inject
     GeneralDao generalDao;
 
 

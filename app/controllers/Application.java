@@ -17,20 +17,22 @@ import services.TaskService;
 import services.UserService;
 import views.html.*;
 
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.IOException;
 import java.util.List;
 
 
-@org.springframework.stereotype.Controller
+@Named
 public class Application extends Controller {
 
-    @Autowired
+    @Inject
     private TaskService taskService;
 
-    @Autowired
+    @Inject
     private GeneralDao generalDao;
 
-    @Autowired
+    @Inject
     private UserService userService;
 
     @BodyParser.Of(BodyParser.Json.class)
